@@ -36,6 +36,8 @@
         </xsl:choose>
     </xsl:template>
 
+    <xsl:template match="relatedItem[@displayLabel='Project']"/>
+
     <xsl:template match="relatedItem[@displayLabel='Collection']"/>
 
     <xsl:template match="accessCondition"/>
@@ -43,6 +45,11 @@
     <xsl:template match='mods'>
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
+            <relatedItem displayLabel="Project" type="host">
+                <titleInfo>
+                    <title>Ramsey Family Letters</title>
+                </titleInfo>
+            </relatedItem>
             <relatedItem displayLabel="Collection" type="host">
                 <titleInfo>
                     <title>Ramsey Family Papers</title>
